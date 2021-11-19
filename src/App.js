@@ -1,8 +1,16 @@
+import Header from "./components/Header";
+import Form from "./components/Form";
+
 function App() {
   return (
-    <div>
-      <h1>Bebidas</h1>
-    </div>
+    <>
+      <Header />
+      <div className="container mt-5">
+        <div className="row">
+          <Form />
+        </div>
+      </div>
+    </>
   );
 }
 
