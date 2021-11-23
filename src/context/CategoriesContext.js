@@ -13,9 +13,7 @@ const CategoriesProvider = (props) => {
     const fetchAPI = async () => {
       const url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
       const res = await axios(url);
-      // console.log(res);
       setCategories(res.data.drinks);
-      console.log(categories);
     };
 
     fetchAPI();

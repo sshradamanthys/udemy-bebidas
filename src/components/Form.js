@@ -1,9 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CategoriesContext } from "../context/CategoriesContext";
 
 const Form = (props) => {
-  const categories = useContext(CategoriesContext);
-  console.log(categories);
+  const [query, setQuery] = useState({
+    name: "",
+    category: "",
+  });
+  const { categories } = useContext(CategoriesContext);
+
+  const handleChange = (e) => {
+    setQuery({ ...query, [e.target.name]: e.target.value });
+  };
 
   return (
     <form className="col-12">
@@ -17,11 +24,21 @@ const Form = (props) => {
             className="form-control"
             name="name"
             placeholder="Buscar por Ingrediente"
+            onChange={handleChange}
           />
         </div>
         <div className="col-md-4">
-          <select name="category" id="" className="form-control">
+          <select
+            name="category"
+            className="form-control"
+            onChange={handleChange}
+          >
             <option value="">--- Selecciona Categoría ---</option>
+            {categories.map((category) => (
+              <option key={category.strCategory} value={category.strCategory}>
+                {category.strCategory}
+              </option>
+            ))}
           </select>
         </div>
         <div className="col-md-4">
