@@ -1,19 +1,27 @@
 import { useContext, useState } from "react";
 import { CategoriesContext } from "../context/CategoriesContext";
+import { DrinksContext } from "../context/DrinksContext";
 
 const Form = (props) => {
-  const [query, setQuery] = useState({
+  const [data, setData] = useState({
     name: "",
     category: "",
   });
   const { categories } = useContext(CategoriesContext);
+  const { setQuery, setExecuteQuery } = useContext(DrinksContext);
 
   const handleChange = (e) => {
-    setQuery({ ...query, [e.target.name]: e.target.value });
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setQuery(data);
+    setExecuteQuery(true);
   };
 
   return (
-    <form className="col-12">
+    <form className="col-12" onSubmit={handleSubmit}>
       <fieldset className="text-center">
         <legend>Busca bebidas por Categoría o Ingrediente</legend>
       </fieldset>
