@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { CategoriesContext } from "../context/CategoriesContext";
 
-const Form = () => {
-  console.log(useContext(CategoriesContext));
+const Form = (props) => {
+  const categories = useContext(CategoriesContext);
+  console.log(categories);
 
   return (
     <form className="col-12">
