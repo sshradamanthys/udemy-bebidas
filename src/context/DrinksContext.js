@@ -27,7 +27,7 @@ const DrinksProvider = (props) => {
   }, [query]);
 
   return (
-    <DrinksContext.Provider value={{ setQuery, setExecuteQuery }}>
+    <DrinksContext.Provider value={{ drinks, setQuery, setExecuteQuery }}>
       {props.children}
     </DrinksContext.Provider>
   );
