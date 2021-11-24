@@ -3,10 +3,11 @@ import React, { createContext, useState } from "react";
 export const ModalContext = createContext();
 
 const ModalProvider = (props) => {
-  const [selected, setSelected] = useState(null);
-  console.log(selected);
+  const [id, setId] = useState(null);
+
+  console.log(id);
   return (
-    <ModalContext.Provider value={{ setSelected }}>
+    <ModalContext.Provider value={{ setId }}>
       {props.children}
     </ModalContext.Provider>
   );
