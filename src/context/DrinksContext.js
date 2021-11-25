@@ -16,7 +16,6 @@ const DrinksProvider = (props) => {
         const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${name}&c=${category}`;
         const res = await axios(url);
         setDrinks(res.data.drinks);
-        console.log(drinks);
       };
 
       fetchAPI();
